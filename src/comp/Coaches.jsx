@@ -1,45 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import Trans from './Trans';
+import { dataService } from '../data/dataService';
+import { getImageUrl } from '../lib/supabase';
+
 export default function Coaches() {
-  // Array الكوتشيز مع البيانات المحلية
-  const coachesData = [
-    {
-      id: 1,
-      name: 'Ahmed Talat',
-      title: 'General Manager',
-      img: '/coaches/tal3at.png',
-      link: 'https://www.instagram.com/_ahmedtalaat7?igsh=MXYzZ3VuZzBnZG9neA%3D%3D&utm_source=qr'
-    },
-    {
-      id: 2,
-      name: 'Hazem',
-      title: 'Personal Trainer',
-      img: '/coaches/hazem.png',
-      link: 'instagram.com/_hazem.adel_?igsh=MTl4aDY1NmJmeG5obA=='
-    },
-    {
-      id: 3,
-      name: 'Abdelrhman',
-      title: 'Personal Trainer',
-      img: '/coaches/abdo.png',
-      link: 'https://www.instagram.com/abdulrahmanmatloub?igsh=d2ozY2I1dXpxcjhp%E2%80%8E%E2%80%8F'
-    },
-    {
-      id: 4,
-      name: 'Zinap',
-      title: 'Personal Trainer',
-      img: '/coaches/zinap.png',
-      link: '/'
-    },
-
-  ];
-
+  const [coachesData, setCoachesData] = useState([]);
   const [current, setCurrent] = useState(0);
+
+  // Fetch coaches from Supabase
+  useEffect(() => {
+    dataService.getCoaches().then(({ data, error }) => {
+      if (error) {
+        console.error('Error loading coaches:', error);
+      }
+      if (data && data.length > 0) {
+        console.log('👥 Coaches data:', data);
+        const formattedCoaches = data.map(coach => ({
+          id: coach.id,
+          name: coach.name || 'Coach',
+          title: coach.role || 'Personal Trainer',
+          img: getImageUrl(coach.image_url) || '/assets/default-coach.jpg',
+          link: coach.metadata?.link || coach.metadata?.instagram || '/'
+        }));
+        setCoachesData(formattedCoaches);
+      }
+    });
+  }, []);
 
   // Auto slide كل 3.5 ثانية
   useEffect(() => {
     if (coachesData.length === 0) return;
-    
+
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % coachesData.length);
     }, 3500);
@@ -51,7 +42,7 @@ export default function Coaches() {
     <section className="py-8 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row gap-8 items-center justify-center">
-          
+
           {/* قسم الكوتشيز */}
           <div className="w-full lg:w-1/2">
             <div className="text-center mb-6">
@@ -82,7 +73,7 @@ export default function Coaches() {
                       <div className="relative mb-4">
                         <div className="w-48 mx-auto rounded-lg overflow-hidden">
                           <img
-                            className="w-48  object-cover"
+                            className="w-48 object-cover"
                             src={coachesData[current].img}
                             alt={`Coach ${coachesData[current].name}`}
                           />
@@ -96,8 +87,8 @@ export default function Coaches() {
                             key={index}
                             onClick={() => setCurrent(index)}
                             className={`transition-all rounded-full ${
-                              index === current 
-                                ? 'bg-red-600 w-4 h-2' 
+                              index === current
+                                ? 'bg-red-600 w-4 h-2'
                                 : 'bg-gray-600 w-2 h-2'
                             }`}
                           />
@@ -116,7 +107,6 @@ export default function Coaches() {
               <div className="text-xl md:text-2xl font-bold text-white mb-4">
                 <Trans></Trans>
               </div>
-
             </div>
           </div>
 

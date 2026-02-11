@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import logo from "../public/logo.png";
+
 export default function Nav() {
+  const logo = "/assets/logo.png";
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import bg from "../src/assets/bg.jpg"; // أو المسار الصحيح عندك
+import bg from "./assets/bg.jpg";
 
 export default function PageWithVideo() {
   const [text, setText] = useState("");
