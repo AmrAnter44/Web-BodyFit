@@ -6,7 +6,10 @@ import Layout from './Layout';
 import Coaches from './comp/Coaches';
 import Classes from './comp/Classes';
 import { Analytics } from "@vercel/analytics/react"
+import { useWebsiteTracking } from './hooks/useWebsiteTracking';
+
 function App() {
+  useWebsiteTracking();
   let router = createBrowserRouter([
     {
       path: "/",
