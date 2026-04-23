@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <>
       <footer className="text-white bg-black p-0 m-0 mt-auto">
-        <div className="flex flex-row justify-between">
-          <div className="flex flex-row">
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 px-4 py-4">
+          <div className="flex flex-row justify-center md:justify-start">
             <a
               href="https://www.instagram.com/body_fitgymm?igsh=MWN5MThpczI5dzFmaw=="
               className="text-white p-2 lg:p-4"
@@ -22,42 +22,43 @@ export default function Footer() {
               <i className="fa-solid fa-location-dot text-2xl text-red-500 mt-1 p-1"></i>
             </a>
           </div>
-          <div>
-            <img src="/pay.png" alt="" className="w-44 mr-8 mt-4" />
-          </div>
-        </div>
 
-        <div className="px-4 py-6 border-t border-white/10 flex flex-col items-center text-center">
-          <p className="text-white font-semibold mb-4 text-base sm:text-lg tracking-wide">
-            Our gym app is available on{" "}
-            <span className="text-red-500">Android</span> &{" "}
-            <span className="text-red-500">iPhone</span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.fitboost.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300"
-            >
-              <i className="fa-brands fa-google-play text-green-500 text-2xl group-hover:scale-110 transition-transform"></i>
-              <div className="flex flex-col items-start leading-tight">
-                <span className="text-[10px] text-white/60 uppercase">Get it on</span>
-                <span className="text-white font-semibold">Google Play</span>
-              </div>
-            </a>
-            <a
-              href="https://apps.apple.com/eg/app/fit-boost/id6760668273"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300"
-            >
-              <i className="fa-brands fa-apple text-white text-2xl group-hover:scale-110 transition-transform"></i>
-              <div className="flex flex-col items-start leading-tight">
-                <span className="text-[10px] text-white/60 uppercase">Download on the</span>
-                <span className="text-white font-semibold">App Store</span>
-              </div>
-            </a>
+          <div className="flex flex-col items-center text-center order-first md:order-none">
+            <p className="text-white font-semibold mb-3 text-sm sm:text-base tracking-wide">
+              Our gym app is available on{" "}
+              <span className="text-red-500">Android</span> &{" "}
+              <span className="text-red-500">iPhone</span>
+            </p>
+            <div className="flex flex-row gap-3 justify-center">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.fitboost.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300"
+              >
+                <i className="fa-brands fa-google-play text-green-500 text-xl group-hover:scale-110 transition-transform"></i>
+                <div className="flex flex-col items-start leading-tight">
+                  <span className="text-[9px] text-white/60 uppercase">Get it on</span>
+                  <span className="text-white font-semibold text-sm">Google Play</span>
+                </div>
+              </a>
+              <a
+                href="https://apps.apple.com/eg/app/fit-boost/id6760668273"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300"
+              >
+                <i className="fa-brands fa-apple text-white text-xl group-hover:scale-110 transition-transform"></i>
+                <div className="flex flex-col items-start leading-tight">
+                  <span className="text-[9px] text-white/60 uppercase">Download on</span>
+                  <span className="text-white font-semibold text-sm">App Store</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div className="flex justify-center md:justify-end">
+            <img src="/pay.png" alt="" className="w-44 md:mr-4" />
           </div>
         </div>
       </footer>
