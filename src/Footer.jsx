@@ -27,28 +27,36 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="px-4 pb-4 pt-2 border-t border-white/10">
-          <p className="text-white font-semibold mb-2">
-            Our gym app is available on Android & iPhone
+        <div className="px-4 py-6 border-t border-white/10 flex flex-col items-center text-center">
+          <p className="text-white font-semibold mb-4 text-base sm:text-lg tracking-wide">
+            Our gym app is available on{" "}
+            <span className="text-red-500">Android</span> &{" "}
+            <span className="text-red-500">iPhone</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-6">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="https://play.google.com/store/apps/details?id=com.fitboost.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-red-500 transition-colors flex items-center gap-2"
+              className="group flex items-center gap-3 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300"
             >
-              <i className="fa-brands fa-google-play text-green-500 text-xl"></i>
-              <span>Android</span>
+              <i className="fa-brands fa-google-play text-green-500 text-2xl group-hover:scale-110 transition-transform"></i>
+              <div className="flex flex-col items-start leading-tight">
+                <span className="text-[10px] text-white/60 uppercase">Get it on</span>
+                <span className="text-white font-semibold">Google Play</span>
+              </div>
             </a>
             <a
               href="https://apps.apple.com/eg/app/fit-boost/id6760668273"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-red-500 transition-colors flex items-center gap-2"
+              className="group flex items-center gap-3 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300"
             >
-              <i className="fa-brands fa-apple text-blue-400 text-xl"></i>
-              <span>iPhone</span>
+              <i className="fa-brands fa-apple text-white text-2xl group-hover:scale-110 transition-transform"></i>
+              <div className="flex flex-col items-start leading-tight">
+                <span className="text-[10px] text-white/60 uppercase">Download on the</span>
+                <span className="text-white font-semibold">App Store</span>
+              </div>
             </a>
           </div>
         </div>
